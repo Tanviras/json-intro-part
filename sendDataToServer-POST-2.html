@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JSON</h1>
+    <h2>JavaScript Object Notation</h2>
+    <!-- <ul id="users-container">
+       
+    </ul> -->
+    <br>
+    <input id="title" type="text"  placeholder="title"></input>
+    <br>
+    <input  id="bodyContent" type="text" placeholder="post er main jinish"></input>
+    <br>
+    <button id="submit">Submit</button>
+    <!-- Jokhon ei submit korbo,tokhon post hobe. -->
+
+    <script>
+
+    //     //Posting-2
+    //     //Kothao click korle post hoye jabe onekta oirokom ja amra real life a dekhi.
+    //     document.getElementById("submit").addEventListener("click",function(){
+    //         console.log("submit click korso, ja post korte chao ta capture kore ante time lagtese, ektu time dao. Tension niyo na. Post kora completed hoye jabe InshaAllah");
+    //         const titleValue =document.getElementById("title").value;//title's input niye ashlam
+    //         const bodyValue =document.getElementById("bodyContent").value;//body's input niye ashlam
+    //         const eguloPostKorteChai={title: titleValue,body: bodyValue};//Eguloi toh post korte chai
+
+    //         fetch('https://jsonplaceholder.typicode.com/posts', 
+    //           {
+    //           method: 'POST',
+    //           body: JSON.stringify(eguloPostKorteChai),
+    //           headers: {'Content-type': 'application/json; charset=UTF-8'}
+    //           }
+    //     )
+    // .then((response) => response.json())//post korar fole je response ta ashbe seta json a convert hobe
+    // .then((json) => console.log(json));
+    //     })
+        
+
+      
+    //Posting-2 er extension
+        //Kothao click korle post hoye jabe onekta oirokom ja amra real life a dekhi.
+
+        document.getElementById("submit").addEventListener("click",function(){
+            console.log("submit click korso, ja post korte chao ta capture kore ante time lagtese, ektu time dao. Tension niyo na. Post kora completed hoye jabe InshaAllah");
+            const titleValue =document.getElementById("title").value;//title's input niye ashlam
+            const bodyValue =document.getElementById("bodyContent").value;//body's input niye ashlam
+            const eguloPostKorteChai={title: titleValue,body: bodyValue};//Eguloi toh post korte chai
+
+            nowPostToServer(eguloPostKorteChai);//function ke call kore dilam
+        })
+
+        function nowPostToServer (whatIsInYourMind){//this is the function
+            fetch('https://jsonplaceholder.typicode.com/posts', 
+              {
+              method: 'POST',
+              body: JSON.stringify(whatIsInYourMind),
+              headers: {'Content-type': 'application/json; charset=UTF-8'}
+              }
+            )
+              .then((response) => response.json())//post korar fole je response ta ashbe seta json a convert hobe
+              .then((json) => console.log(json));
+        }
+    </script>
+</body>
+</html>
