@@ -1,0 +1,54 @@
+<!--This html file is kindof extension of previous file which is "jsonPlaceholder.html"-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JSON</h1>
+    <h2>JavaScript Object Notation</h2>
+    <script>
+        // //Example-3
+        // //To fetch the names only from the JSON placeholder users objects
+
+        // fetch('https://jsonplaceholder.typicode.com/people')//we used incorrect http,the data from server won't be fetched/loaded
+        // .then(response => response.json())
+        // .then(json => displayUser(json))
+        // .catch(error =>console.log(error))//to know what is the error exactly
+        // //check out the "network" tab to know more details
+        // //404 is the status code when something isn't found
+        // //There are other status code like this
+
+        // function displayUser(users){
+        //     const userNames=users.map(users => users.username);
+        //     console.log(userNames);
+        // }
+
+
+
+
+
+
+
+        //Example-3.2
+        //To fetch the names only from the JSON placeholder users objects
+
+        fetch('https://jsonplaceholder.typicode.com/users')//we used the correct http,the data from server will be fetched/loaded. 
+        .then(response => response.json())
+        .then(json => displayUser(json))
+        .catch(error =>console.log(error))//to know what is the error exactly,although there is no error. But to show the network tab fully, you need to add it
+        //check out the "network" tab to know more details
+        //200 is the status code when something is OK
+        //There are other status code like this.
+
+        function displayUser(users){
+            const userNames=users.map(users => users.username);
+            console.log(userNames);
+        }
+    </script>
+    
+</body>
+</html>
