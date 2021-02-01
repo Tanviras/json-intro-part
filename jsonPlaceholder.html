@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Placeholder</title>
+</head>
+<body>
+    <h1>JSON</h1>
+    <h2>JavaScript Object Notation</h2>
+    <ul id="users-container">
+       
+    </ul>
+
+
+
+    <script>
+        //load data
+        //copied from "JSON Placeholder" site
+
+
+
+        //Example-1
+        // fetch('https://jsonplaceholder.typicode.com/todos/1')//here are already made infos about something I don't know. I will just load them in my website in the console. That's why I have copied them from that sources and put it here to show in my website.
+        // .then(response => response.json())
+        // .then(json => console.log(json))
+
+
+
+
+
+        // //Example-2
+        // //copied from "JSON Placeholder" site
+        // fetch('https://jsonplaceholder.typicode.com/users')//here are already made infos about 10 users. I will just load them in my website in the console. That's why I have copied them from that sources and put it here to show in my website.
+        // .then(response => response.json())
+        // .then(json => console.log(json))
+
+
+
+
+        //Example-3
+        //To fetch the names only from the JSON placeholder users objects
+
+        // fetch('https://jsonplaceholder.typicode.com/users')//here are already made infos about 10 users. I will just load them in my website in the console. That's why I have copied them from that sources and put it here to show in my website.
+        // .then(response => response.json())
+        // .then(json => displayUser(json))
+
+        // function displayUser(users){
+        //     // console.log("Here are the users:",users);
+        //     //firstly, show all the infos of all the users
+            
+        //     const userNames=users.map(users => users.username);//secondly,show the names of all users. We could've done it so many ways. Here we have done it by map. 
+        //     console.log(userNames);
+        // }
+
+
+
+
+
+
+        // //Example-4
+        //Console er moddhe toh onek holo, ebar console theke html website a dekhanor pala
+
+        fetch('https://jsonplaceholder.typicode.com/users')//here are already made infos about 10 users. I will just load them in my main website. That's why I have copied them from that sources and put it here to show in my website.
+        .then(response => response.json())
+        .then(json => displayUser(json))//"displayUser" function is called
+
+        function displayUser(jaPelam){//jaPelam= copied "json" infos from JSON placeholder
+            const jaTuleNilam=jaPelam.map(jaPelam => jaPelam.username);//show the names of all username from jaPelam. We could've done it so many ways. Here we have done it by map. 
+            const ul= document.getElementById("users-container");
+
+            for( let i=0; i<jaTuleNilam.length; i++){
+                const jaDekhateHobe =jaTuleNilam[i];
+                const li= document.createElement("li");
+                li.innerText= jaDekhateHobe;//list item hishebe assigned
+                ul.appendChild(li);//li abar ul er child. tai sekhane append kore dite hobe jehetu main html body te bola nai li kothay ache. 
+            }
+        }
+    </script>
+</body>
+</html>
